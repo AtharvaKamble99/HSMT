@@ -25,7 +25,7 @@ public class BillController {
 
     @GetMapping("/{id}")
     public Bill getBillById(@PathVariable Long id){
-        System.out.println("Fethcing bill by id");
+        System.out.println("Fetching bill by id");
         return billService.getBillById(id);
     }
 
@@ -39,7 +39,7 @@ public class BillController {
     @PutMapping
     public void updatePatient(@PathVariable Long id){
         System.out.println("Updating the bill");
-        billService.updatePatient(id);
+        billService.updateBill(id);
     }
 
 }

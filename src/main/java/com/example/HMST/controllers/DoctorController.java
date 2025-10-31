@@ -19,29 +19,30 @@ public class DoctorController {
     @GetMapping
     public List<Doctor> getAllDoctors(){
         System.out.println("Fetching All Doctors");
-        return null;
+        return doctorService.getAllDoctors();
     }
 
     @PostMapping
     public Doctor createDoctor(@RequestBody Doctor doctor){
         System.out.println("Creating Doctor");
-        return doctor;
+        return doctorService.createDoctor(doctor);
     }
 
     @GetMapping("/{id}")
     public Doctor getDoctorById(@PathVariable Long id){
         System.out.println("Fetching Doctor by Id ");
-        return null;
+        return doctorService.getDoctorById(id);
     }
 
     @DeleteMapping("/{id}")
     public void deletePatient(@PathVariable Long id){
         System.out.println("deleting patient by Id");
+        doctorService.deleteDoctor(id);
     }
 
     @PutMapping
     public void updatePatient(@PathVariable Long id){
-
+        doctorService.updateDoctor(id);
     }
 
 

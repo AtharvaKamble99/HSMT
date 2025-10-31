@@ -1,68 +1,59 @@
 package com.example.HMST.service;
 
 import com.example.HMST.models.Doctor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @Service
-public class DoctorService  {
+public class DoctorService {
 
-    public List<Doctor> getAllDoctors(){
-        try{
-            System.out.println("Into Service Layer");
-            return null;
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-            return null;
-        }
-    }
+    private static final Logger logger = LoggerFactory.getLogger(DoctorService.class);
 
-
-    public Doctor createDoctor(Doctor doctor){
-        try{
-            System.out.println("Into Service Layer");
+    public List<Doctor> getAllDoctors() {
+        try {
+            logger.info("Fetching all doctors from the service layer...");
             return null;
-        }catch (Exception e){
-            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            logger.error("An error occurred while fetching all doctors: {}", e.getMessage(), e);
             return null;
         }
     }
 
-
-    public Doctor getDoctorById(Long id){
-        try{
-            System.out.println("Into Service Layer");
+    public Doctor createDoctor(Doctor doctor) {
+        try {
+            logger.info("Creating a new doctor in the service layer...");
             return null;
-        }catch (Exception e){
-            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            logger.error("An error occurred while creating a doctor: {}", e.getMessage(), e);
             return null;
         }
     }
 
-
-    public void deletePatient(Long id){
-
-        try{
-            System.out.println("Into Service Layer");
-
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-
+    public Doctor getDoctorById(Long id) {
+        try {
+            logger.info("Fetching doctor with ID: {}", id);
+            return null;
+        } catch (Exception e) {
+            logger.error("An error occurred while fetching the doctor with ID {}: {}", id, e.getMessage(), e);
+            return null;
         }
     }
 
-
-    public void updatePatient(Long id){
-        try{
-            System.out.println("Into Service Layer");
-
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-
+    public void deleteDoctor(Long id) {
+        try {
+            logger.info("Deleting doctor with ID: {}", id);
+        } catch (Exception e) {
+            logger.error("An error occurred while deleting the doctor with ID {}: {}", id, e.getMessage(), e);
         }
     }
 
-
+    public void updateDoctor(Long id) {
+        try {
+            logger.info("Updating doctor with ID: {}", id);
+        } catch (Exception e) {
+            logger.error("An error occurred while updating the doctor with ID {}: {}", id, e.getMessage(), e);
+        }
+    }
 }
