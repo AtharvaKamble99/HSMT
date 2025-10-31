@@ -2,6 +2,8 @@ package com.example.HMST.controllers;
 
 import com.example.HMST.models.Doctor;
 import com.example.HMST.models.Patient;
+import com.example.HMST.service.DoctorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -10,6 +12,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/doctors")
 public class DoctorController {
+
+    @Autowired
+    private DoctorService doctorService;
 
     @GetMapping
     public List<Doctor> getAllDoctors(){

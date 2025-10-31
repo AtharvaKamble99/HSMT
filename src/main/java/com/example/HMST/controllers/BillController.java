@@ -1,6 +1,7 @@
 package com.example.HMST.controllers;
 
 import com.example.HMST.models.Bill;
+import com.example.HMST.service.BillService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,33 +10,36 @@ import java.util.List;
 @RequestMapping("api/v1/bills")
 public class BillController {
 
+    private BillService billService;
     @GetMapping
     public List<Bill> getAllBills(){
-        return null;
+        return billService.getAllBills();
     }
 
     @PostMapping
     public Bill createBill(@RequestBody Bill bill){
         System.out.println("Creating a new Bill");
-        return bill;
+        return billService.createBill(bill);
     }
 
 
     @GetMapping("/{id}")
     public Bill getBillById(@PathVariable Long id){
         System.out.println("Fethcing bill by id");
-        return null;
+        return billService.getBillById(id);
     }
 
 
     @DeleteMapping("/{id}")
     public void deleteBill(@PathVariable Long id){
         System.out.println("Deleting a bill");
+        billService.deleteBill(id);
     }
 
     @PutMapping
     public void updatePatient(@PathVariable Long id){
-
+        System.out.println("Updating the bill");
+        billService.updatePatient(id);
     }
 
 }
