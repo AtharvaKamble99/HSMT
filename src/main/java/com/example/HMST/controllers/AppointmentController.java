@@ -1,6 +1,7 @@
 package com.example.HMST.controllers;
 
 import com.example.HMST.models.Appointment;
+import com.example.HMST.models.Patient;
 import com.example.HMST.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -38,8 +39,8 @@ public class AppointmentController {
     }
 
     @PutMapping
-    public void updatePatient(@PathVariable Long id){
-        appointmentService.updatePatient(id);
+    public void updateAppointment(@PathVariable Long id, @RequestBody Appointment appointment){
+        appointmentService.updateAppointment(id,appointment);
 
     }
 }

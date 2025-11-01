@@ -38,8 +38,8 @@ public class PatientController {
     }
 
     @PutMapping
-    public void updatePatient(@PathVariable Long id){
-        System.out.println("Updating the Patient's info");
-        patientService.updatePatient(id);
+    public void updatePatient(@PathVariable Long id, @RequestBody Patient patient){
+        patientService.updatePatient(id,patient);
+
     }
 }

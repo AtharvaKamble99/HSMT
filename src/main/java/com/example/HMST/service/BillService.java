@@ -49,7 +49,7 @@ public class BillService {
         }
     }
 
-    public void updateBill(Long id) {
+    public void updateBill(Long id,Bill bill) {
         try {
             logger.info("Updating bill with ID: {}", id);
         } catch (Exception e) {

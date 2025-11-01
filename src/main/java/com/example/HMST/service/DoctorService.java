@@ -49,7 +49,7 @@ public class DoctorService {
         }
     }
 
-    public void updateDoctor(Long id) {
+    public void updateDoctor(Long id,Doctor doctor) {
         try {
             logger.info("Updating doctor with ID: {}", id);
         } catch (Exception e) {

@@ -50,7 +50,7 @@ public class PatientService {
         }
     }
 
-    public void updatePatient(Long id) {
+    public void updatePatient(Long id,Patient patient) {
         try {
             System.out.println("Into Service Layer");
         } catch (Exception e) {

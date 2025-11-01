@@ -50,7 +50,7 @@ public class AppointmentService {
         }
     }
 
-    public void updatePatient(Long id) {
+    public void updateAppointment(Long id, Appointment appointment) {
         try {
             logger.info("Updating appointment for ID: {}", id);
         } catch (Exception e) {

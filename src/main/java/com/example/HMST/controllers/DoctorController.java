@@ -35,14 +35,14 @@ public class DoctorController {
     }
 
     @DeleteMapping("/{id}")
-    public void deletePatient(@PathVariable Long id){
+    public void deleteDoctor(@PathVariable Long id){
         System.out.println("deleting patient by Id");
         doctorService.deleteDoctor(id);
     }
 
     @PutMapping
-    public void updatePatient(@PathVariable Long id){
-        doctorService.updateDoctor(id);
+    public void updateDoctor(@PathVariable Long id, @RequestBody Doctor doctor){
+        doctorService.updateDoctor(id,doctor);
     }
 
 
