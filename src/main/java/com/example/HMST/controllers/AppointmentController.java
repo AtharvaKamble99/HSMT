@@ -1,7 +1,6 @@
 package com.example.HMST.controllers;
 
 import com.example.HMST.models.Appointment;
-import com.example.HMST.models.Patient;
 import com.example.HMST.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -1,11 +1,12 @@
 package com.example.HMST.repository;
 
+import com.example.HMST.models.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface PatientRepository<Patient> extends JpaRepository<Patient,Long> {
+public interface PatientRepository extends JpaRepository<Patient,Long> {
 
 }
 
