@@ -4,6 +4,7 @@ import com.example.HMST.models.Doctor;
 import com.example.HMST.models.Patient;
 import com.example.HMST.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -17,9 +18,9 @@ public class DoctorController {
     private DoctorService doctorService;
 
     @GetMapping
-    public List<Doctor> getAllDoctors(){
+    public Page<Doctor> getAllDoctors(@RequestParam (defaultValue = "0")int page, @RequestParam(defaultValue = "2")int size){
         System.out.println("Fetching All Doctors");
-        return doctorService.getAllDoctors();
+        return doctorService.getAllDoctors(page,size);
     }
 
     @PostMapping

@@ -3,6 +3,7 @@ package com.example.HMST.controllers;
 import com.example.HMST.models.Patient;
 import com.example.HMST.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,9 +15,9 @@ public class PatientController {
     @Autowired
     private PatientService patientService;
     @GetMapping
-    public List<Patient> getAllPatients(){
+    public Page<Patient> getAllPatients(@RequestParam(defaultValue= "0")int page, @RequestParam(defaultValue = "4")int size){
         System.out.println("Fetching all patients");
-        return patientService.getAllPatients();
+        return patientService.getAllPatients(page,size);
     }
 
     @PostMapping

@@ -5,6 +5,9 @@ import com.example.HMST.repository.PatientRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
@@ -18,10 +21,11 @@ public class PatientService {
     private PatientRepository patientRepository;
     private static final Logger logger = LoggerFactory.getLogger(PatientService.class);
 
-    public List<Patient> getAllPatients() {
+    public Page<Patient> getAllPatients(int page, int size) {
         try {
             System.out.println("Into Service Layer");
-            return patientRepository.findAll();
+            Pageable pageable = PageRequest.of(page,size);
+            return patientRepository.findAll(pageable);
         } catch (Exception e) {
             logger.error("An error occurred while fetching all patients: {}", e.getMessage(), e);
             return null;

@@ -5,6 +5,9 @@ import com.example.HMST.repository.AppointmentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,10 +21,11 @@ public class AppointmentService {
 
     private static final Logger logger = LoggerFactory.getLogger(AppointmentService.class);
 
-    public List<Appointment> getAllAppointments() {
+    public Page<Appointment> getAllAppointments(int page, int size) {
         try {
             logger.info("Fetching all appointments from the service layer...");
-            return appointmentRepository.findAll();
+            Pageable pageable = PageRequest.of(page,size);
+            return appointmentRepository.findAll(pageable);
         } catch (Exception e) {
             logger.error("An error occurred while fetching all appointments: {}", e.getMessage(), e);
             return null;

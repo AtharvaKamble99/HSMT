@@ -3,6 +3,7 @@ package com.example.HMST.controllers;
 import com.example.HMST.models.Appointment;
 import com.example.HMST.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,9 +15,9 @@ public class AppointmentController {
     @Autowired
     private AppointmentService appointmentService;
     @GetMapping
-    public List<Appointment> getAllAppointments(){
+    public Page<Appointment> getAllAppointments(@RequestParam(defaultValue= "0")int page, @RequestParam(defaultValue = "4")int size){
         System.out.println("Fetching all Appointments");
-        return appointmentService.getAllAppointments();
+        return appointmentService.getAllAppointments(page,size);
     }
 
     @PostMapping

@@ -1,8 +1,13 @@
 package com.example.HMST.service;
 
 import com.example.HMST.models.Bill;
+import com.example.HMST.repository.BillRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -11,10 +16,13 @@ public class BillService {
 
     private static final Logger logger = LoggerFactory.getLogger(BillService.class);
 
-    public List<Bill> getAllBills() {
+    @Autowired
+    private BillRepository billRepository;
+    public Page<Bill> getAllBills(int page, int size) {
         try {
             logger.info("Fetching all bills from the service layer...");
-            return null;
+            Pageable pageable = PageRequest.of(page,size);
+            return billRepository.findAll(pageable);
         } catch (Exception e) {
             logger.error("An error occurred while fetching all bills: {}", e.getMessage(), e);
             return null;

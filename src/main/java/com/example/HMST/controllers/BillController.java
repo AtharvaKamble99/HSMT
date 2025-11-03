@@ -2,6 +2,7 @@ package com.example.HMST.controllers;
 
 import com.example.HMST.models.Bill;
 import com.example.HMST.service.BillService;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,8 +13,8 @@ public class BillController {
 
     private BillService billService;
     @GetMapping
-    public List<Bill> getAllBills(){
-        return billService.getAllBills();
+    public Page<Bill> getAllBills(@RequestParam(defaultValue = "0")int page, @RequestParam(defaultValue = "2")int size){
+        return billService.getAllBills(page,size);
     }
 
     @PostMapping
